@@ -1,0 +1,36 @@
+name: New skill
+description: Propose a skill for a group that isn't covered yet
+labels: [skill]
+body:
+  - type: input
+    id: group
+    attributes:
+      label: Who is it for?
+    validations:
+      required: true
+  - type: input
+    id: sentence
+    attributes:
+      label: The one sentence this group keeps saying about chatbots
+      placeholder: '"It asks me three things at once."'
+    validations:
+      required: true
+  - type: textarea
+    id: before
+    attributes:
+      label: Before — a real response you got
+    validations:
+      required: true
+  - type: textarea
+    id: after
+    attributes:
+      label: After — what it should have said
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: Your relationship to this group
+      options: ["I'm in it", "I work with it", "I care for someone in it", "Other"]
+    validations:
+      required: true

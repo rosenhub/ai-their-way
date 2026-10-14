@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1200" height="560" fill="#010409"/>
+  <text x="600" y="62" text-anchor="middle" font-size="34" font-weight="800" fill="#e6edf3">AI Their Way</text>
+  <text x="600" y="92" text-anchor="middle" font-size="16" fill="#8b949e">Eight skills. One line each. Built for the people the defaults were not built for.</text>
+
+  <g font-size="15">
+    <!-- row 1 -->
+    <rect x="40" y="120" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="60" y="150" font-weight="800" fill="#e6edf3" font-size="18">no-subtext</text>
+    <text x="60" y="178" fill="#c9d1d9">Make your AI say exactly</text>
+    <text x="60" y="198" fill="#c9d1d9">what it means.</text>
+    <text x="60" y="280" fill="#6e7681" font-size="13">autistic users</text>
+
+    <rect x="330" y="120" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="350" y="150" font-weight="800" fill="#e6edf3" font-size="18">what-did-they-mean</text>
+    <text x="350" y="178" fill="#c9d1d9">Paste what they said.</text>
+    <text x="350" y="198" fill="#c9d1d9">Find out what they meant.</text>
+    <text x="350" y="280" fill="#6e7681" font-size="13">autistic adults</text>
+
+    <rect x="620" y="120" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="640" y="150" font-weight="800" fill="#e6edf3" font-size="18">never-say-remember</text>
+    <text x="640" y="178" fill="#c9d1d9">Your AI never says</text>
+    <text x="640" y="198" fill="#c9d1d9">"do you remember?"</text>
+    <text x="640" y="280" fill="#6e7681" font-size="13">people living with dementia</text>
+
+    <rect x="910" y="120" width="250" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="930" y="150" font-weight="800" fill="#e6edf3" font-size="18">easy-read</text>
+    <text x="930" y="178" fill="#c9d1d9">Your AI writes</text>
+    <text x="930" y="198" fill="#c9d1d9">in Easy Read.</text>
+    <text x="930" y="280" fill="#6e7681" font-size="13">adults with IDD</text>
+
+    <!-- row 2 -->
+    <rect x="40" y="320" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="60" y="350" font-weight="800" fill="#e6edf3" font-size="18">presume-competence</text>
+    <text x="60" y="378" fill="#c9d1d9">One word is</text>
+    <text x="60" y="398" fill="#c9d1d9">a whole sentence.</text>
+    <text x="60" y="480" fill="#6e7681" font-size="13">nonspeaking people, AAC users</text>
+
+    <rect x="330" y="320" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="350" y="350" font-weight="800" fill="#e6edf3" font-size="18">low-demand</text>
+    <text x="350" y="378" fill="#c9d1d9">When they're overwhelmed,</text>
+    <text x="350" y="398" fill="#c9d1d9">your AI gets quiet.</text>
+    <text x="350" y="480" fill="#6e7681" font-size="13">overload, PDA profiles</text>
+
+    <rect x="620" y="320" width="270" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="640" y="350" font-weight="800" fill="#e6edf3" font-size="18">is-this-a-scam</text>
+    <text x="640" y="378" fill="#c9d1d9">Paste it.</text>
+    <text x="640" y="398" fill="#c9d1d9">Find out.</text>
+    <text x="640" y="480" fill="#6e7681" font-size="13">adults with IDD, older adults</text>
+
+    <rect x="910" y="320" width="250" height="180" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="930" y="350" font-weight="800" fill="#e6edf3" font-size="18">one-thing</text>
+    <text x="930" y="378" fill="#c9d1d9">Not a plan. Not a list.</text>
+    <text x="930" y="398" fill="#c9d1d9">One thing.</text>
+    <text x="930" y="480" fill="#6e7681" font-size="13">executive function</text>
+  </g>
+
+  <text x="600" y="538" text-anchor="middle" font-size="14" fill="#3fb950">12 rules each · 0 code · 16 agent hosts · MIT · github.com/rosenhub/ai-their-way</text>
+</svg>

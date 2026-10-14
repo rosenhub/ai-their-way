@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Rule change to an existing skill
+    url: https://github.com/rosenhub
+    about: Open it on that skill's own repo, not here.

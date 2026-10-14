@@ -1,0 +1,16 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install-all.sh parses and dry-runs
+        run: |
+          sh -n install-all.sh
+          sh install-all.sh --help
+      - name: README links every skill
+        run: |
+          for s in no-subtext what-did-they-mean never-say-remember easy-read presume-competence low-demand is-this-a-scam one-thing; do
+            grep -q "github.com/rosenhub/$s" README.md || { echo "missing $s"; exit 1; }
+          done
