@@ -11,7 +11,6 @@
 [![Hosts](https://img.shields.io/badge/hosts-16-green?style=flat-square)](#install)
 [![Awesome](https://img.shields.io/badge/awesome-list-ff69b4?style=flat-square)](#the-skills)
 
-**让任何 AI 代理为自闭症、智力与发育障碍、失智症用户服务的技能合集。**
 
 [The skills](#the-skills) · [Which one do I need?](#which-one-do-i-need) · [Install](#install) · [Stack them](#stack-them) · [Why](#why-this-exists) · [FAQ](#faq)
 
