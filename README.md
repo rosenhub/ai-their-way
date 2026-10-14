@@ -12,11 +12,13 @@
 [![Awesome](https://img.shields.io/badge/awesome-list-ff69b4?style=flat-square)](#the-skills)
 
 
-[The skills](#the-skills) · [Which one do I need?](#which-one-do-i-need) · [Install](#install) · [Stack them](#stack-them) · [Why](#why-this-exists) · [FAQ](#faq)
+[For caregivers](#for-parents-and-caregivers) · [The skills](#the-skills) · [Which one do I need?](#which-one-do-i-need) · [Install](#install) · [Stack them](#stack-them) · [Why](#why-this-exists) · [FAQ](#faq)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/rosenhub/ai-their-way/main/install-all.sh | sh
 ```
+
+**Not a developer? [Set it up for someone in 5 minutes →](https://rosenhub.github.io/ai-their-way/)**
 
 <img src="assets/banner.png" alt="AI Their Way — eight skills, one line each" width="100%">
 
@@ -27,6 +29,18 @@ curl -fsSL https://raw.githubusercontent.com/rosenhub/ai-their-way/main/install-
 Every AI assistant ships with one personality: cheerful, hedging, idiom-heavy, answer-in-paragraph-three. That default was tuned on the median user. It fails hardest for the people who notice it first: autistic adults who take language literally, adults with IDD who need one idea per sentence, people with dementia who ask the same question again and are told "I already said that," nonspeaking people whose one-word message gets three clarifying questions back.
 
 Each skill here is one markdown file that fixes one of those failures. They install into Claude Code, Codex, Cursor, Gemini CLI, ChatGPT, OpenClaw, and 10 other hosts. They stack. They are MIT. None of them is a clinical tool.
+
+## For parents and caregivers
+
+**No coding. About 5 minutes.** Each skill is one block of text you paste into a settings box in ChatGPT, Claude, or Gemini. Every new chat after that follows the rules.
+
+### → [Open the caregiver setup page](https://rosenhub.github.io/ai-their-way/)
+
+Pick who it's for, pick their app, copy the text, and follow 4 steps. There's a test question at the end so you know it worked.
+
+**Set it up with them, not for them.** If the person you support is an adult, show them the page and ask if they want it. They can turn it off any time.
+
+Each skill's own page also has a "For parents and caregivers" section with the same steps.
 
 ## The skills
 

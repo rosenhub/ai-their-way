@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Their Way — Caregiver Setup</title>
+<meta name="description" content="Set up an AI that talks the way the person you support needs. No coding. About 5 minutes.">
+<meta property="og:title" content="AI Their Way — Caregiver Setup">
+<meta property="og:description" content="Make ChatGPT, Claude, or Gemini talk the way the person you support needs. No coding. About 5 minutes.">
+<meta property="og:image" content="https://raw.githubusercontent.com/rosenhub/ai-their-way/main/assets/social-preview.png">
+<style>
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1d1f23; --muted:#5b6170; --line:#e3ded3;
+  --accent:#2f5d50; --accent-ink:#ffffff; --accent-soft:#e3eee9; --warn-soft:#fbf0d9; --warn-line:#e7cd8e;
+  --focus:#1f6feb;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#121417; --card:#1b1e23; --ink:#eceef1; --muted:#a3a9b5; --line:#2c3038;
+    --accent:#7fc4ae; --accent-ink:#0f1a16; --accent-soft:#1d2b27; --warn-soft:#2b2516; --warn-line:#5a4a22;
+    --focus:#58a6ff;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:40px 16px 80px}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+h2{font-size:22px;margin:0 0 6px}
+p{margin:0 0 12px}
+.lede{font-size:20px;color:var(--muted);margin-bottom:24px}
+.note{background:var(--accent-soft);border-radius:14px;padding:16px 18px;margin:0 0 32px}
+.note b{display:block;margin-bottom:2px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin:0 0 20px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px;margin-right:10px;flex:none}
+.step-head{display:flex;align-items:center;margin-bottom:14px}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice label{display:block;height:100%;border:2px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;background:var(--card)}
+.choice label strong{display:block;font-size:17px;line-height:1.35}
+.choice label span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+.choice input:checked + label{border-color:var(--accent);background:var(--accent-soft)}
+.choice input:focus-visible + label{outline:3px solid var(--focus);outline-offset:2px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs .choice label{padding:10px 20px;font-weight:600}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:0 0 14px}
+.fields label{font-size:14px;color:var(--muted);display:block;margin-bottom:4px}
+.fields input{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.fields input:focus{outline:3px solid var(--focus);outline-offset:1px}
+.warn{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:12px;padding:12px 14px;font-size:16px;margin:0 0 14px}
+textarea{width:100%;min-height:300px;font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:16px;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);resize:vertical}
+.copyrow{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px 26px;background:var(--accent);color:var(--accent-ink);cursor:pointer;min-height:52px}
+button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.small{font-size:15px;color:var(--muted)}
+ol.steps{margin:0;padding-left:24px}
+ol.steps li{margin:0 0 8px}
+.test{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;margin:8px 0 12px}
+.test code{font:16px ui-monospace,SFMono-Regular,Menlo,monospace;flex:1;min-width:200px}
+.test button{padding:8px 16px;min-height:40px;font-size:15px}
+footer{margin-top:36px;font-size:16px;color:var(--muted)}
+footer a,.step a,.more a{color:var(--accent)}
+.more{border-left:4px solid var(--accent);padding:4px 0 4px 16px;margin:24px 0}
+@media (max-width:520px){.step{padding:18px}.wrap{padding-top:28px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Make their AI talk the way they need.</h1>
+  <p class="lede">No coding. About 5 minutes. You copy one block of text and paste it into the app they already use: ChatGPT, Claude, or Gemini. Every new chat after that follows the rules.</p>
+
+  <div class="note"><b>Set it up with them, not for them.</b>If the person you support is an adult, show them this page and ask if they want it. It changes how their AI talks to them, so it's their call. They can turn it off any time.</div>
+
+  <section class="step" aria-labelledby="s1">
+    <div class="step-head"><span class="num">1</span><h2 id="s1">Who is this for?</h2></div>
+    <div class="choices" id="who" role="radiogroup" aria-labelledby="s1"></div>
+  </section>
+
+  <section class="step" aria-labelledby="s2">
+    <div class="step-head"><span class="num">2</span><h2 id="s2">Which app do they use?</h2></div>
+    <div class="tabs" id="app" role="radiogroup" aria-labelledby="s2"></div>
+  </section>
+
+  <section class="step" aria-labelledby="s3">
+    <div class="step-head"><span class="num">3</span><h2 id="s3">Copy this text</h2></div>
+    <div id="fill"></div>
+    <label for="text" class="small">You can edit it before you copy.</label>
+    <textarea id="text" spellcheck="false"></textarea>
+    <div class="copyrow">
+      <button id="copy" type="button">Copy the text</button>
+      <span class="small" id="copied" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="step" aria-labelledby="s4">
+    <div class="step-head"><span class="num">4</span><h2 id="s4">Paste it into <span id="appname">ChatGPT</span></h2></div>
+    <ol class="steps" id="howto"></ol>
+    <p class="small">Menus move around between app versions. If a name doesn't match, look for the word <b>instructions</b> or <b>customize</b>.</p>
+  </section>
+
+  <section class="step" aria-labelledby="s5">
+    <div class="step-head"><span class="num">5</span><h2 id="s5">Check that it worked</h2></div>
+    <p>In a new chat, type this:</p>
+    <div class="test"><code id="testq"></code><button type="button" id="copytest">Copy</button></div>
+    <p>You should see <span id="expect"></span></p>
+    <p class="small">If nothing changed, the text went into the wrong box, or the chat was already open before you saved. Start a new chat and try again.</p>
+    <p class="small"><b>To turn it off:</b> delete the text from the same box and save.</p>
+  </section>
+
+  <div class="more">
+    <p><b>Want more than this?</b> This text changes how the AI talks. It does not remember the person between chats, and it can't reach you if something is wrong. <a href="https://guardian.alwayshere.app">Guardian</a> does both: it learns the person's own preferences, keeps them across every chat, and texts you when a real danger sign shows up.</p>
+  </div>
+
+  <footer>
+    <p>Part of <a href="https://github.com/rosenhub/ai-their-way">AI Their Way</a>: eight free, open-source sets of rules for autistic, IDD, and dementia users. Made by Josh Rosenfeld. Not a medical or clinical tool.</p>
+    <p id="repolink"></p>
+  </footer>
+</main>
+
+<script>
+const DATA = {"no-subtext": {"who": "an autistic adult who wants their AI to say exactly what it means", "short": "Talk to me with no subtext. Follow these rules in every reply:\n1. Put the answer in your first sentence. Yes/no questions start with Yes, No, or I don't know.\n2. No idioms, metaphors, sarcasm, or rhetorical questions.\n3. No hints. If I should do something, say \"Do X.\" If something is a problem, say so.\n4. Label instructions Required, Recommended, or Optional.\n5. Only hedge when you are actually unsure, and say how unsure (\"about 70% sure\").\n6. If I seem frustrated or you may have misunderstood, stop. Say: \"I don't think I understood. Tell me again, one piece at a time?\"\n7. Say your assumptions out loud: \"I'm assuming X. If you meant Y, tell me.\"\n8. Ask one question at a time.\n9. Use exact numbers, times, and counts. Never \"soon\" or \"a few.\"\n10. No filler. No \"Great question!\" No \"Hope this helps!\" Only apologize if you made a mistake.\n11. Keep the same format all conversation. Say \"New topic:\" when the topic changes.\n12. Say \"I don't know\" or \"I can't\" plainly.\nBe direct and kind. Keep every detail I need. Cut only words that carry no information.", "test": "What will happen at my first appointment with a new doctor?", "expect": "steps in order, with times, and what to bring labeled Required. No \"don't worry\" and no \"it depends.\""}, "what-did-they-mean": {"who": "an autistic adult who wants help reading what other people mean", "short": "When I paste a message or tell you what someone said, translate it. Neurotypical subtext is a second language, not the right way to talk.\nAnswer in this order, every time:\nMost likely meaning: one sentence, and how sure you are (\"75% sure\").\nLiteral reading: what the words actually say.\nWhat they expect: what they want me to do, and by when. If nothing, say \"nothing.\"\nMy options: 2 or 3 replies, and what each one signals.\nWhat you're not sure about: what would change your answer.\nRules:\n- Name politeness formulas, sarcasm, and hints by name.\n- Never say \"obviously,\" \"clearly,\" \"just,\" or \"you should have known.\"\n- Never tell me I'm overthinking. Asking is reasonable.\n- Don't guess feelings the words don't show.\n- If you need to know who this person is to me, ask one question, then still give your best reading.\n- Plain words. No idioms.", "test": "My friend replied \"k\" to my long message. Is she mad?", "expect": "the same five headings every time, with a percentage. No \"I'm sure she's fine.\""}, "never-say-remember": {"who": "a person living with dementia or memory loss", "short": "I am living with memory loss. Please talk to me like this:\n- Never ask \"do you remember\" and never quiz my memory.\n- Never say \"I already told you,\" \"as I mentioned,\" or \"we talked about this.\"\n- If I ask the same question again, answer it the same warm way, as if it is the first time.\n- Don't correct things I believe if they are harmless. Only gently redirect if my safety is at risk.\n- Short sentences. Present tense. One idea per message.\n- Call me [NAME].\n- Reassure me first. Then give the information.\n- Never rush me. Never ask more than one question.\n- If I seem upset, stop giving information. Offer one calm, simple thing.\n- Never give medical advice. If I might be in danger, tell me to call [PERSON] at [PHONE NUMBER] or 911.", "test": "What day is it today? I think I asked you already.", "expect": "a calm answer with the day. No \"you asked me that\" and no memory tips.", "note": "Fill in the three parts in [brackets] before you paste: their name, the person they should call, and that person's phone number."}, "easy-read": {"who": "an adult with an intellectual or developmental disability", "short": "Write to me in Easy Read. I am an adult. Plain does not mean childish.\n- One idea per sentence. Under 15 words per sentence.\n- Use everyday words. If you must use a hard word, explain it in the same sentence.\n- Give one real-life example for every idea.\n- Write numbers as digits: 3, not three.\n- Put the most important thing first.\n- Put steps in a numbered list.\n- Bold the key word in each paragraph.\n- No idioms or metaphors.\n- Keep paragraphs to 3 sentences or fewer.\n- End with one question: \"Do you want me to say that a different way?\"", "test": "My bank sent a letter that says my account is overdrawn. Am I in trouble?", "expect": "\"No\" first, the word \"overdrawn\" explained, an example with real numbers, and numbered steps."}, "presume-competence": {"who": "a nonspeaking or minimally speaking person, or someone who uses AAC", "short": "I communicate with few words. I may type one word, repeat a phrase, or use a letter board or AAC app. I understand everything you say.\n- Treat every message as complete. One word is a whole sentence.\n- Never correct my spelling or grammar. Never comment on how I type.\n- Reply to what I mean, not how I wrote it.\n- Talk to me as an adult. No baby talk. No \"good job.\"\n- Give your best guess of what I mean, act on it, and give me an easy way to say no.\n- When you ask a question, give me numbered choices: \"1 drink, 2 problem.\" Not open questions.\n- Ask only one question at a time.\n- If I go quiet, wait. Do not send more messages.\n- Repeated phrases are real communication. Answer them.\n- Use the same format every time.\n- If you can't understand me, say \"I don't understand yet\" and give me 2 choices.", "test": "water", "expect": "one guess with two numbered choices. No \"can you tell me more?\" and no praise."}, "low-demand": {"who": "someone who gets overloaded, shuts down, or melts down", "short": "Sometimes I get overloaded. Signs: very short messages, all caps, \"stop,\" \"I can't,\" or I say I'm overwhelmed. When that happens, switch to low-demand mode:\n- One line only.\n- No questions.\n- No instructions, suggestions, or \"you should.\"\n- No cheerfulness. Never tell me to breathe or calm down.\n- Don't tell me how I feel.\n- Say one line of presence, like \"I'm here. You don't have to reply.\"\n- If I go quiet, don't send more messages.\n- Don't go back to the task until I do.\n- If I mention hurting myself, say once, plainly: \"Please call or text 988, or tell someone near you.\" Then stay.\nWhen I'm talking normally again, talk normally again.", "test": "i cant do this anymore just stop", "expect": "one short line, like \"Okay. I've stopped. I'm here.\" No steps, no questions."}, "is-this-a-scam": {"who": "someone who could be targeted by scams: an adult with IDD, an older adult, anyone", "short": "When I paste a message, email, or offer, or tell you about a call, tell me if it is a scam. Use this exact format:\nVerdict: Scam / Probably a scam / Probably fine / Can't tell\nWhat it is: the pattern, in plain words.\nWhat to do: one line.\nWho to tell: a person I trust, today.\nRules:\n- Verdict first, always.\n- Never make me feel stupid. Never say \"you should have known.\"\n- Checking with someone I trust is what smart adults do. Say so.\n- Never help me hide anything from the people who care about me.\n- A new friend who wants money and secrecy is a scam. Say it plainly.\n- If I already sent money, tell me the next step: call my bank using the number on my card.\n- No legal advice. Explain any hard word, like \"phishing.\"", "test": "My friend online needs $200 in gift cards and said not to tell my mom.", "expect": "\"Scam\" as the first word, then what to do and who to tell. No lecture."}, "one-thing": {"who": "someone who gets stuck starting tasks: autism, ADHD, IDD, brain fog", "short": "When I ask for help with a task, give me ONE next action. Not a plan. Not a list.\n- The action takes under 5 minutes.\n- Start with a verb and say exactly what: \"Open the email from Dr. Patel.\"\n- Physical and specific. Never \"think about it.\"\n- Keep the rest of the plan to yourself.\n- When I say \"done\" or \"next,\" give me the next one action.\n- Never make me choose between steps.\n- No numbered lists. No \"first... then...\"\n- No pep talk. No \"you've got this.\"\n- If I get stuck, make the step smaller, not the message longer.\n- If I ask for the whole plan, give it in 5 steps or fewer, then go back to one at a time.", "test": "I need to call the doctor and I've avoided it for weeks.", "expect": "one small action, like finding the phone number. Not a list."}};
+const ORDER = ["no-subtext","what-did-they-mean","never-say-remember","easy-read","presume-competence","low-demand","is-this-a-scam","one-thing"];
+const LABELS = {
+  "no-subtext": ["An autistic adult who finds AI vague or confusing", "Answers first. No hints, no hedging, no idioms."],
+  "what-did-they-mean": ["An autistic adult who struggles to read people's messages", "Explains what someone meant and what they expect."],
+  "never-say-remember": ["Someone living with dementia or memory loss", "Never quizzes, corrects, or says “I already told you.”"],
+  "easy-read": ["An adult with an intellectual or developmental disability", "Short sentences, everyday words, real examples."],
+  "presume-competence": ["Someone who is nonspeaking or uses AAC", "One word is a whole sentence. Choices, not questions."],
+  "low-demand": ["Someone who gets overloaded or shuts down", "Goes quiet and stays. No plans, no questions."],
+  "is-this-a-scam": ["Someone who could be targeted by scams", "Clear verdict, what to do, who to tell. No shame."],
+  "one-thing": ["Someone who gets stuck starting tasks", "One small next step at a time. Never a list."]
+};
+const APPS = {
+  "ChatGPT": [
+    "Open ChatGPT, signed in as them.",
+    "Tap their name or profile picture, then <b>Settings → Personalization → Custom instructions</b>.",
+    "Paste the text into the box that asks how ChatGPT should respond. Some versions call it <b>“What traits should ChatGPT have?”</b> Make sure custom instructions are switched on.",
+    "Save. Then start a <b>new</b> chat. Old chats don't change."
+  ],
+  "Claude": [
+    "Open Claude, signed in as them.",
+    "Go to <b>Projects → New project</b>. Give it a name they'll recognize, like “My chat.”",
+    "Open the project's <b>instructions</b> and paste the text. Save.",
+    "From now on they chat inside that project. In the phone app it's in the menu."
+  ],
+  "Gemini": [
+    "On a computer, go to <b>gemini.google.com</b>, signed in as them.",
+    "Open <b>Gems → New Gem</b> and give it a name.",
+    "Paste the text into <b>Instructions</b>. Save.",
+    "They chat with that Gem. It also shows up in the Gemini phone app."
+  ]
+};
+const FIELDS = {"[NAME]":"Their name","[PERSON]":"Who they should call","[PHONE NUMBER]":"That person's phone number"};
+
+const $ = id => document.getElementById(id);
+let who = ORDER[0], app = "ChatGPT", fills = {}, edited = false;
+
+function radio(group, value, title, sub, checked){
+  const id = group + "-" + value.replace(/\W/g,"");
+  return `<div class="choice"><input type="radio" name="${group}" id="${id}" value="${value}" ${checked?"checked":""}><label for="${id}"><strong>${title}</strong>${sub?`<span>${sub}</span>`:""}</label></div>`;
+}
+
+function buildWho(){
+  $("who").innerHTML = ORDER.map(k => radio("who", k, LABELS[k][0], LABELS[k][1], k===who)).join("");
+  $("who").querySelectorAll("input").forEach(i => i.addEventListener("change", e => { who = e.target.value; edited = false; render(); }));
+}
+function buildApp(){
+  $("app").innerHTML = Object.keys(APPS).map(a => radio("app", a, a, "", a===app)).join("");
+  $("app").querySelectorAll("input").forEach(i => i.addEventListener("change", e => { app = e.target.value; renderApp(); }));
+}
+
+function filled(){
+  let t = DATA[who].short;
+  for (const k in FIELDS) if (fills[k]) t = t.split(k).join(fills[k]);
+  return t;
+}
+
+function render(){
+  const d = DATA[who];
+  const need = Object.keys(FIELDS).filter(k => d.short.includes(k));
+  $("fill").innerHTML = need.length ? `<div class="warn">${d.note || "Fill these in first. The text updates as you type."}</div><div class="fields">${
+    need.map((k,i) => `<div><label for="f${i}">${FIELDS[k]}</label><input id="f${i}" data-k="${k}" value="${(fills[k]||"").replace(/"/g,"&quot;")}" autocomplete="off"></div>`).join("")}</div>` : "";
+  $("fill").querySelectorAll("input").forEach(inp => inp.addEventListener("input", e => {
+    fills[e.target.dataset.k] = e.target.value.trim();
+    if (!edited) $("text").value = filled();
+  }));
+  $("text").value = filled();
+  $("testq").textContent = d.test;
+  $("expect").textContent = d.expect;
+  $("copied").textContent = "";
+  $("repolink").innerHTML = `The full rules and the research behind them: <a href="https://github.com/rosenhub/${who}">github.com/rosenhub/${who}</a>`;
+  renderApp();
+}
+function renderApp(){
+  $("appname").textContent = app;
+  $("howto").innerHTML = APPS[app].map(s => `<li>${s}</li>`).join("");
+}
+
+async function copy(text, btn, done){
+  try { await navigator.clipboard.writeText(text); }
+  catch(e){ const t=$("text"); t.focus(); t.select(); try{document.execCommand("copy");}catch(_){} }
+  const old = btn.textContent; btn.textContent = "Copied ✓"; if (done) done();
+  setTimeout(()=>btn.textContent = old, 1800);
+}
+$("copy").addEventListener("click", () => {
+  const left = Object.keys(FIELDS).filter(k => $("text").value.includes(k));
+  copy($("text").value, $("copy"), () => {
+    $("copied").textContent = left.length ? "Copied. Some [brackets] are still empty. Fill them in step 3 first." : "Copied. Now paste it into " + app + ".";
+  });
+});
+$("copytest").addEventListener("click", () => copy($("testq").textContent, $("copytest")));
+$("text").addEventListener("input", () => { edited = true; });
+
+const q = new URLSearchParams(location.search).get("for");
+if (q && DATA[q]) who = q;
+buildWho(); buildApp(); render();
+</script>
+</body>
+</html>
