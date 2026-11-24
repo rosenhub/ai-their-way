@@ -1,0 +1,26 @@
+{
+  "name": "alwayshere",
+  "displayName": "AlwaysHere",
+  "description": "AI, their way. Eight skills that make Claude work for autistic adults, adults with IDD, and people living with dementia: plain literal language, Easy Read, one step at a time, calm in overload, scam checks, and no memory tests. By AlwaysHere, makers of Guardian.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AlwaysHere",
+    "url": "https://alwayshere.app"
+  },
+  "homepage": "https://aitheirway.com",
+  "repository": "https://github.com/rosenhub/ai-their-way",
+  "license": "MIT",
+  "icon": "./assets/icon.png",
+  "keywords": [
+    "accessibility",
+    "autism",
+    "neurodivergent",
+    "idd",
+    "dementia",
+    "easy-read",
+    "plain-language",
+    "caregivers",
+    "scam-check",
+    "alwayshere"
+  ]
+}
